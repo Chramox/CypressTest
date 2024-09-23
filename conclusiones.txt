@@ -1,0 +1,17 @@
+CONCLUSIONES OPCION 3 DE AUTOMATIZACION E2E
+
+1. Para esta prueba fue requerido deshabilitar la seguridad de redireccion HTTPS a HTTP debido a como la pagina http://opencart.abstracta.us/index.php 
+    funcionaba, ya que Cypress al detectar esta transición no navegaba a la página. Esto es una brecha de seguridad que si 
+    el dominio estuviera en nuestro poder debería ser abordado.
+
+2. Escoger buenos selectores para interactuar con la página es necesario para que el test sea consistente y confiable.
+3. No siempre Cypress espera que la pagina cargue adecuadamente asi que es necesario agregar "wait" adicionales.
+4. Cypress es un framework muy potente
+
+CONCLUSIONES OPCION 2 DE apiTesting
+
+1. La documentación proporcionada por la API en Swagger hace que realizar las pruebas sean mucho mas faciles.
+2. Cypress también puede aportar mucho para la pruebas de apiTesting
+3. Que los modelos se encontraran disponibles en la documentación de la API aceleró las realización de las pruebas.
+4. Es necesario asegurar que las respuestas que se obtienen sean consistentes
+5. Las pruebas deben ser lo más parametrizables posibles para que actualizarlas sea rapido.

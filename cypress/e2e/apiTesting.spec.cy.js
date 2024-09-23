@@ -6,7 +6,6 @@ describe('API TEST petstore', () => {
         cy.fixture('pet').then((pet) => {
             
             cy.request('POST', 'https://petstore.swagger.io/v2/pet', pet).then((response) => {
-                console.log("RESPONSE", response)
 
                 expect(response.status).to.eq(200)
                 expect(response.body).to.deep.equal(pet)
@@ -17,7 +16,6 @@ describe('API TEST petstore', () => {
     it('Get pet previously added - GET', () => {
         cy.fixture('pet').then((pet) => {
             cy.request('GET', `https://petstore.swagger.io/v2/pet/${pet['id']}`).then((response) => {
-                console.log("RESPONSE", response)
 
                 expect(response.status).to.eq(200)
                 expect(response.body).to.deep.equal(pet)
@@ -33,7 +31,6 @@ describe('API TEST petstore', () => {
             const body = `name=${pet.name}&status=sold`
 
             cy.request('POST', `https://petstore.swagger.io/v2/pet/${pet['id']}`, body).then((response) => {
-                console.log("RESPONSE", response)
                 const expectedResponse = {
                     code: 200,
                     type: 'unknown',
@@ -51,7 +48,6 @@ describe('API TEST petstore', () => {
             pet.name = 'Rudolf'
             pet.status = 'sold'
             cy.request('GET', `https://petstore.swagger.io/v2/pet/${pet['id']}`).then((response) => {
-                console.log("RESPONSE", response)
 
                 expect(response.status).to.eq(200)
                 expect(response.body).to.deep.equal(pet)
