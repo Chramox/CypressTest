@@ -1,3 +1,5 @@
+REPOSITORIO: https://github.com/Chramox/CypressTest
+
 Las pruebas requeridas fueron realizadas con Cypress, se encuentran en la ruta "./cypress/e2e"
 
 El archivo "addToCart.spec.cy.js" ejecuta la prueba e2e para añadir los productos al carrito y proceder a la compra.
