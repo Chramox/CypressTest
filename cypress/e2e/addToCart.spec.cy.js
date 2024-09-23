@@ -3,7 +3,7 @@
 describe('Add products to cart and checkout', () => { 
 
   it('Add products to cart', () => {
-      cy.visit('https://opencart.abstracta.us/');
+      cy.visit('/');
 
       //SELECT PRODUCTS
       cy
@@ -12,50 +12,60 @@ describe('Add products to cart and checkout', () => {
       .then((shoppingButton) => {
         cy.wrap(shoppingButton).eq(0).click();
 
-        cy.wait(5000);
+        cy.wait(2500);
   
         cy.wrap(shoppingButton).eq(1).click();
         
-        cy.wait(5000);
+        cy.wait(2500);
       
       });
 
       cy.get('a[title="Shopping Cart"]').click();
 
-      cy.wait(5000)
+      cy.wait(2500)
 
       cy.get('.btn-primary').contains('Checkout').click()
 
+      cy.wait(2500)
+
       // STEP ONE
-      cy.get('div.radio').contains('Guest Checkout').click()
-      cy.get('input').contains('Continue').click()
+      cy.contains('Guest Checkout').click()
+      cy.get('input[value="Continue"]').click()
 
       // STEP TWO
-      cy.get('input[name="First Name"]').type('Juan')
-      cy.get('input[name="Last Name"]').type('Ibarra')
-      cy.get('input[name="email"]').type('juan.ibarra@devsu.com')
-      cy.get('input[name="company"]').type('devsu')
-      cy.get('input[name="address_1"]').type('test address')
-      cy.get('input[name="city"]').type('Guatemala')
-      cy.get('input[name="postcode"]').type('01018')
+      cy.get('#input-payment-firstname').type('Juan')
+      cy.get('#input-payment-lastname').type('Ibarra')
+      cy.get('#input-payment-email').type('juan.ibarra@devsu.com')
+      cy.get('#input-payment-telephone').type('juan.ibarra@devsu.com')
+      cy.get('#input-payment-company').type('devsu')
+      cy.get('#input-payment-address-1').type('test address')
+      cy.get('#input-payment-city').type('Guatemala')
+      cy.get('#input-payment-postcode').type('01018')
       
-      cy.get('select[name="country_id"]').click()
-      cy.get('option').contains('Guatemala').click()
+      cy.get('#input-payment-country').select('Guatemala')
 
-      cy.get('select[name="zone_id"]').click()
-      cy.get('option').contains('Guatemala').click()
+      cy.get('#input-payment-zone').select('Guatemala')
 
-      cy.get('input').contains('Continue').click()
+      cy.get('input[value="Continue"]').last().click()
 
       // STEP FOUR
-      cy.get('input').contains('Continue').click()
+      cy.wait(2500)
+      cy.get('input[value="Continue"]').last().click()
+      
 
       // STEP FIVE
-      cy.get('input[type="checkbox"]').click()
-      cy.get('input').contains('Continue').click()
+      cy.wait(2500)
+      cy.get('input[type="checkbox"]').last().click({force: true})
+      cy.get('input[value="Continue"]').last().click()
 
       // STEP SIX
-      cy.get('input').contains('Confirm Order').click()
-    
+      cy.wait(2500)
+      cy.get('input[value="Confirm Order"]').click()
+
+      cy.wait(2500)
+      cy.get('#content > h1').then((tag) => {
+        const text = tag.text().trim();
+        expect(text).to.equal('Your order has been placed!')
+      });
   });
 });
