@@ -3,7 +3,7 @@
 describe('Add products to cart and checkout', () => { 
 
   it('Add products to cart', () => {
-      cy.visit('/');
+      cy.visit('http://opencart.abstracta.us/index.php');
 
       //SELECT PRODUCTS
       cy

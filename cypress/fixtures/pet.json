@@ -1,0 +1,18 @@
+{
+    "id": 100,
+    "category": {
+        "id": 1,
+        "name": "FELINE"
+    },
+    "name": "Katty",
+    "photoUrls": [
+        "https://en.wiktionary.org/wiki/cat"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "cat"
+        }
+    ],
+    "status": "available"
+}

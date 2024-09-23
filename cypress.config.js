@@ -5,7 +5,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://opencart.abstracta.us/index.php'
   },
   chromeWebSecurity: false,
 });

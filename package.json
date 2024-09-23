@@ -4,8 +4,7 @@
   "description": "Prueba tecnica Cypress ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "npx cypress open"
+    "test": "npx cypress open"
   },
   "author": "Juan Marcos Ibarra",
   "license": "ISC",
